@@ -1,0 +1,55 @@
+//Header Files
+    #include <cs50.h>
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+    #include <ctype.h>
+
+//Main Function
+    int main(int argc , string argv[])
+    {
+        //Variable Declaration
+            string plainText;
+            int i = atoi(argv[1]);
+
+        //Checks
+            if ( argc < 2 ||  argc > 2)
+            {
+                printf("Error 1 : Need more arguments \n");
+                return 1;
+            }
+            if ( i < 1 || i >= 26)
+            {
+                printf ("Error 2: Retry k value\n");
+                return 2;
+            }
+        //Get plaintext
+            printf("Plain Text: ");
+            plainText = get_string();
+        
+        //Convert Plain using key 
+            printf("Encrypted Text: ");
+            for (int c = 0, n = strlen(plainText); c<n; c++)
+                {
+                    if( isalpha(plainText[c]))
+                    {
+                        if(isupper(plainText[c]))
+                        {
+                            if((int) plainText[c] > 90 )
+                            {
+                                printf("%c", (int) plainText[c - 25]);
+                            }
+                        }
+                         if(islower(plainText[c]))
+                        {
+                            if((int) plainText[c] > 122 )
+                            {
+                                printf("%c", (int) plainText[c - 25]);
+                            }
+                        }
+                        //printf("%c", (int) plainText[c] + i);
+                    }
+                    printf("%c",plaintText[c]);
+                }
+            printf("\n");
+    }
